@@ -12,15 +12,15 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Please provide the address of a file as an input.\n");
         return -1;
     }
-    char cmd[BUFSIZE] = "wc -c < ";
-    strcat(cmd, argv[1]);
-    system(cmd);
+    // char cmd[BUFSIZE] = "wc -c < ";
+    // strcat(cmd, argv[1]);
+    // system(cmd);
 
-    // struct stat file_info;
-    // if (stat(argv[1], &file_info) == -1) { // check if file exists
-    //     return -1;
-    // }
+    struct stat file_info;
+    if (stat(argv[1], &file_info) == -1) { // check if file exists
+        return -1;
+    }
 
-    // printf("%ld bytes\n", file_info.st_size); // print size of file
-    // return 0;
+    printf("%ld bytes\n", file_info.st_size); // print size of file
+    return 0;
 }
